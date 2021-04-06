@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "vaccine-address",
+  "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location-address",
+  "version": "0.1.0",
+  "name": "VaccineAddress",
+  "status": "active",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    },
+    {
+      "identity": "vcard",
+      "uri": "http://w3.org/vcard",
+      "name": "vCard Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "type": "Address",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Address",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Address.text",
+        "path": "Address.text",
+        "definition": "Cannot use text formatted address",
+        "max": "0"
+      },
+      {
+        "id": "Address.line",
+        "path": "Address.line",
+        "definition": "Must have at least one address line",
+        "min": 1
+      },
+      {
+        "id": "Address.city",
+        "path": "Address.city",
+        "definition": "Must have city",
+        "min": 1
+      },
+      {
+        "id": "Address.state",
+        "path": "Address.state",
+        "definition": "Must have state",
+        "min": 1
+      },
+      {
+        "id": "Address.postalCode",
+        "path": "Address.postalCode",
+        "definition": "Must have zip code",
+        "min": 1
+      }
+    ]
+  }
+}

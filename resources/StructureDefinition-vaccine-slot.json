@@ -1,0 +1,115 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "vaccine-slot",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
+      "valueString": "Base.Workflow"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category",
+      "valueCode": "business"
+    }
+  ],
+  "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-slot",
+  "version": "0.1.0",
+  "name": "VaccineSlot",
+  "status": "active",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "ical",
+      "uri": "http://ietf.org/rfc/2445",
+      "name": "iCalendar"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Slot",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Slot",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Slot.extension",
+        "path": "Slot.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Slot.extension:booking-link",
+        "path": "Slot.extension",
+        "sliceName": "booking-link",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-deep-link"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Slot.extension:booking-phone",
+        "path": "Slot.extension",
+        "sliceName": "booking-phone",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://fhir-registry.smarthealthit.org/StructureDefinition/booking-phone"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Slot.extension:capacity",
+        "path": "Slot.extension",
+        "sliceName": "capacity",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://fhir-registry.smarthealthit.org/StructureDefinition/slot-capacity"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Slot.status",
+        "path": "Slot.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://fhir-registry.smarthealthit.org/ValueSet/vaccine-slot-status"
+        }
+      }
+    ]
+  }
+}
