@@ -14,10 +14,8 @@ Id: vaccine-slot
 
 ValueSet: VaccineSlotStatus
 Id: vaccine-slot-status
-* include codes from system SSTAT
-* exclude SSTAT#busy-unavailable
-* exclude SSTAT#busy-tentative
-* exclude SSTAT#entered-in-error
+* include SSTAT#free
+* include SSTAT#busy
 
 Extension: BookingDeepLink
 Id: booking-deep-link
