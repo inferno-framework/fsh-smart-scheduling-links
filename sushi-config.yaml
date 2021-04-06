@@ -3,7 +3,7 @@
 # │  supported properties, see: https://fshschool.org/docs/sushi/configuration/                    │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 id: smart.scheduling.links
-canonical: https://github.com/smart-on-fhir/smart-scheduling-links
+canonical: http://fhir-registry.smarthealthit.org
 name: fsh-smart-scheduling-links
 status: draft
 version: 0.1.0

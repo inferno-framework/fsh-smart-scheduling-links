@@ -1,7 +1,7 @@
 Alias: SSTAT = http://hl7.org/fhir/slotstatus
 Alias: $BookingDeepLink = booking-deep-link
 Alias: $BookingPhone = booking-phone
-Alias: $BookingCapacity = booking-capacity
+Alias: $BookingCapacity = slot-capacity
 
 Profile: VaccineSlot
 Parent: Slot
@@ -28,5 +28,5 @@ Id: booking-phone
 * value[x] only string
 
 Extension: BookingCapacity
-Id: booking-capacity
+Id: slot-capacity
 * value[x] only integer
