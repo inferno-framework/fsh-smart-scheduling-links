@@ -1,5 +1,5 @@
 # SMART Scheduling Links (FSH Edition)
-This repository is an unofficial effort to represent the FHIR [SMART Scheduling Links](https://github.com/smart-on-fhir/smart-scheduling-links/) specification in [FHIR Shorthand](http://build.fhir.org/ig/HL7/fhir-shorthand/index.html). Suggestions and updates are welcome to better match the intent of the SMART Scheduling Links Spec.
+This repository is an effort to represent the FHIR [SMART Scheduling Links](https://github.com/smart-on-fhir/smart-scheduling-links/) specification in [FHIR Shorthand](http://build.fhir.org/ig/HL7/fhir-shorthand/index.html) to support automated conformance testing. Suggestions and updates are welcome to better match the intent of the SMART Scheduling Links Spec.
 
 ## License
 Copyright 2021 The MITRE Corporation
