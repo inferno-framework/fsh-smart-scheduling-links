@@ -14,6 +14,12 @@ Id: vaccine-location
 * obeys vaccine-location-1
 * obeys vaccine-location-2
 * obeys vaccine-location-3
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier ^slicing.description = "Identifier needs at least one VTrckS value"
+* identifier contains vTrckS 1..1 MS
+* identifier[vTrckS].system = "https://cdc.gov/vaccines/programs/vtrcks"
 
 ValueSet: SMARTTelecomSystem
 Id: smart-telecom-system
