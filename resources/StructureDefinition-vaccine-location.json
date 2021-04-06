@@ -97,6 +97,27 @@
             "expression": "text.`div`.exists()",
             "xpath": "exists(f:text/h:div)",
             "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "vaccine-location-1",
+            "severity": "warning",
+            "human": "Location should have a phone and an email",
+            "expression": "telecom.where(system = 'phone').exists() and telecom.where(system = 'url').exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
+          },
+          {
+            "key": "vaccine-location-2",
+            "severity": "error",
+            "human": "If a telecom claims to be a phone number, it should only have phone-like characters",
+            "expression": "telecom.where(system = 'phone' and value.contains('@')).empty()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
+          },
+          {
+            "key": "vaccine-location-3",
+            "severity": "error",
+            "human": "If a telecom claims to be a URL, it should only have url-like characters",
+            "expression": "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.matches('\\S')).exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
           }
         ],
         "isModifier": false,
@@ -2425,6 +2446,33 @@
   },
   "differential": {
     "element": [
+      {
+        "id": "Location",
+        "path": "Location",
+        "constraint": [
+          {
+            "key": "vaccine-location-1",
+            "severity": "warning",
+            "human": "Location should have a phone and an email",
+            "expression": "telecom.where(system = 'phone').exists() and telecom.where(system = 'url').exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
+          },
+          {
+            "key": "vaccine-location-2",
+            "severity": "error",
+            "human": "If a telecom claims to be a phone number, it should only have phone-like characters",
+            "expression": "telecom.where(system = 'phone' and value.contains('@')).empty()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
+          },
+          {
+            "key": "vaccine-location-3",
+            "severity": "error",
+            "human": "If a telecom claims to be a URL, it should only have url-like characters",
+            "expression": "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.matches('\\S')).exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
+          }
+        ]
+      },
       {
         "id": "Location.identifier.system",
         "path": "Location.identifier.system",
