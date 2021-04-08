@@ -116,7 +116,7 @@
             "key": "vaccine-location-3",
             "severity": "error",
             "human": "If a telecom claims to be a URL, it should only have url-like characters",
-            "expression": "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.matches('\\S')).exists()",
+            "expression": "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.contains(' ')).empty()",
             "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
           }
         ],
@@ -2922,7 +2922,7 @@
             "key": "vaccine-location-3",
             "severity": "error",
             "human": "If a telecom claims to be a URL, it should only have url-like characters",
-            "expression": "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.matches('\\S')).exists()",
+            "expression": "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.contains(' ')).empty()",
             "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-location"
           }
         ]

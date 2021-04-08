@@ -39,4 +39,4 @@ Expression: "telecom.where(system = 'phone' and value.contains('@')).empty()"
 Invariant: vaccine-location-3
 Description: "If a telecom claims to be a URL, it should only have url-like characters"
 Severity: #error
-Expression: "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.matches('\\S')).exists()"
+Expression: "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.contains(' ')).empty()"
