@@ -8,6 +8,7 @@ Id: vaccine-location
 * telecom.system 1..
 * telecom.system from SMARTTelecomSystem (required)
 * telecom.value 1..
+* address 1..1
 * address only VaccineAddress
 * identifier.system 1..1
 * identifier.value 1..1
@@ -27,7 +28,7 @@ Id: smart-telecom-system
 * include CPS#url
 
 Invariant: vaccine-location-1
-Description: "Location should have a phone and an email"
+Description: "Location should have a phone and URL"
 Severity: #warning
 Expression: "telecom.where(system = 'phone').exists() and telecom.where(system = 'url').exists()"
 
