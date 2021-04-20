@@ -105,6 +105,20 @@
             "expression": "text.`div`.exists()",
             "xpath": "exists(f:text/h:div)",
             "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "vaccine-schedule-1",
+            "severity": "warning",
+            "human": "Schedule should have an extension with the vaccine-product URL",
+            "expression": "extension.where(url.contains('vaccine-product')).exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-schedule"
+          },
+          {
+            "key": "vaccine-schedule-2",
+            "severity": "warning",
+            "human": "Schedule should have an extension with the vaccine-dose URL",
+            "expression": "extension.where(url.contains('vaccine-dose')).exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-schedule"
           }
         ],
         "isModifier": false,
@@ -970,6 +984,26 @@
   },
   "differential": {
     "element": [
+      {
+        "id": "Schedule",
+        "path": "Schedule",
+        "constraint": [
+          {
+            "key": "vaccine-schedule-1",
+            "severity": "warning",
+            "human": "Schedule should have an extension with the vaccine-product URL",
+            "expression": "extension.where(url.contains('vaccine-product')).exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-schedule"
+          },
+          {
+            "key": "vaccine-schedule-2",
+            "severity": "warning",
+            "human": "Schedule should have an extension with the vaccine-dose URL",
+            "expression": "extension.where(url.contains('vaccine-dose')).exists()",
+            "source": "http://fhir-registry.smarthealthit.org/StructureDefinition/vaccine-schedule"
+          }
+        ]
+      },
       {
         "id": "Schedule.extension",
         "path": "Schedule.extension",
