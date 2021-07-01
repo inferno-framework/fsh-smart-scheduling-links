@@ -23,7 +23,7 @@ Id: vaccine-schedule
 Extension: VaccineProduct
 Id: vaccine-product
 * value[x] only Coding
-* valueCoding from VVS
+* valueCoding from VaccineProductCVX
 
 Extension: VaccineDoseNumber
 Id: vaccine-dose
@@ -51,3 +51,7 @@ Invariant: vaccine-schedule-2
 Description: "Schedule should have an extension with the vaccine-dose URL"
 Severity: #warning
 Expression: "extension.where(url.contains('vaccine-dose')).exists()"
+
+ValueSet: VaccineProductCVX
+Id: vaccine-product-cvx
+* include codes from system http://hl7.org/fhir/sid/cvx
