@@ -18,9 +18,10 @@ Id: vaccine-location
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
-* identifier ^slicing.description = "Identifier needs at least one VTrckS value"
-* identifier contains vTrckS 1..* MS
+* identifier ^slicing.description = "Identifier should have at least one VTrckS value"
+* identifier contains vTrckS 0..* MS
 * identifier[vTrckS].system = "https://cdc.gov/vaccines/programs/vtrcks"
+* obeys vaccine-location-4
 
 ValueSet: SMARTTelecomSystem
 Id: smart-telecom-system
@@ -41,3 +42,8 @@ Invariant: vaccine-location-3
 Description: "If a telecom claims to be a URL, it should only have url-like characters"
 Severity: #error
 Expression: "telecom.where(system = 'url').exists() implies telecom.where(system = 'url' and value.contains(' ')).empty()"
+
+Invariant: vaccine-location-4
+Description: "Location should have at least one VTrckS PIN"
+Severity: #warning
+Expression: "identifier.where(system = 'https://cdc.gov/vaccines/programs/vtrcks').exists()"
