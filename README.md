@@ -1,3 +1,7 @@
+# Project Archived
+This repository has been archived because this content is now included in the
+[SMART Scheduling Links Test Kit](https://github.com/inferno-framework/smart-scheduling-links-test-kit).
+
 # SMART Scheduling Links (FSH Edition)
 This repository is an effort to represent the FHIR [SMART Scheduling Links](https://github.com/smart-on-fhir/smart-scheduling-links/) specification in [FHIR Shorthand](http://build.fhir.org/ig/HL7/fhir-shorthand/index.html) to support automated conformance testing. Suggestions and updates are welcome to better match the intent of the SMART Scheduling Links Spec.
 
